@@ -950,6 +950,10 @@ lxor_str(lua_State *L) {
 	return 1;
 }
 
+// defined in lsha1.c
+int lsha1(lua_State *L);
+int lhmac_sha1(lua_State *L);
+
 LUAMOD_API int
 luaopen_crypt(lua_State *L) {
 	luaL_checkversion(L);
@@ -972,6 +976,8 @@ luaopen_crypt(lua_State *L) {
 		{ "dhsecret", ldhsecret },
 		{ "base64encode", lb64encode },
 		{ "base64decode", lb64decode },
+		{ "sha1", lsha1 },
+		{ "hmac_sha1", lhmac_sha1 },
 		{ "hmac_hash", lhmac_hash },
 		{ "xor_str", lxor_str },
 		{ NULL, NULL },
