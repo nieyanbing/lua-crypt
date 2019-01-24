@@ -11,6 +11,11 @@
 
 #define SMALL_CHUNK 256
 
+#if defined WIN32
+#define srandom srand
+#define random rand
+#endif
+
 /* the eight DES S-boxes */
 
 static uint32_t SB1[64] = {
